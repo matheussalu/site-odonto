@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dra. Andrielly Evaristo | Gestão de Consultório</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <span class="brand__icon" aria-hidden="true">🦷</span>
+        <div>
+          <h1>Dra. Andrielly Evaristo</h1>
+          <p>Gestão de consultório odontológico</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <!-- Painel Financeiro -->
+    <section class="card finance" aria-labelledby="fin-title">
+      <h2 id="fin-title">Painel Financeiro</h2>
+      <div class="finance__grid">
+        <div class="stat stat--main">
+          <span class="stat__label">Total recebido (concluídos)</span>
+          <strong class="stat__value" id="total-concluido">R$ 0,00</strong>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Serviços concluídos</span>
+          <strong class="stat__value" id="qtd-concluidos">0</strong>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Pendentes</span>
+          <strong class="stat__value" id="qtd-pendentes">0</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Agendamento -->
+    <section class="card form-card" aria-labelledby="form-title">
+      <h2 id="form-title">Novo Agendamento</h2>
+      <form id="form-agendamento" novalidate>
+        <div class="field">
+          <label for="paciente">Nome do Paciente</label>
+          <input type="text" id="paciente" placeholder="Ex.: Maria Silva" required>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="data">Data</label>
+            <input type="date" id="data" required>
+          </div>
+          <div class="field">
+            <label for="hora">Hora</label>
+            <input type="time" id="hora" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="servico">Descrição do Serviço</label>
+          <input type="text" id="servico" placeholder="Ex.: Limpeza, canal, clareamento" required>
+        </div>
+        <div class="field">
+          <label for="valor">Valor (R$)</label>
+          <input type="number" id="valor" min="0" step="0.01" placeholder="0,00" inputmode="decimal" required>
+        </div>
+        <p class="error" id="erro" role="alert" hidden></p>
+        <button type="submit" class="btn btn--primary">Agendar</button>
+      </form>
+    </section>
+
+    <!-- Agenda -->
+    <section class="card agenda" aria-labelledby="agenda-title">
+      <div class="agenda__head">
+        <h2 id="agenda-title">Agenda de Pacientes</h2>
+        <div class="filters" role="group" aria-label="Filtro">
+          <button class="chip is-active" data-filter="todos">Todos</button>
+          <button class="chip" data-filter="pendente">Pendentes</button>
+          <button class="chip" data-filter="concluido">Concluídos</button>
+        </div>
+      </div>
+      <ul class="list" id="lista"></ul>
+      <p class="empty" id="vazio" hidden>Nenhum agendamento encontrado.</p>
+    </section>
+  </main>
+
+  <footer class="footer">Dados salvos localmente neste navegador.</footer>
+  <script src="script.js"></script>
+</body>
+</html>
